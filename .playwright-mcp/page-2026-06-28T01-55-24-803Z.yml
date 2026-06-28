@@ -1,0 +1,130 @@
+- generic [active]:
+  - generic [ref=e3]:
+    - banner [ref=e6]:
+      - button "Deploy" [ref=e11] [cursor=pointer]:
+        - generic [ref=e13]: Deploy
+    - generic [ref=e14]:
+      - generic [ref=e17]:
+        - generic [ref=e18]:
+          - generic [ref=e19]: Total PnL
+          - generic [ref=e20]: +$12,345
+        - generic [ref=e21]:
+          - generic [ref=e22]: Sharpe
+          - generic [ref=e23]: "1.87"
+        - generic [ref=e24]:
+          - generic [ref=e25]: Win Rate
+          - generic [ref=e26]: 62.4%
+        - generic [ref=e27]:
+          - generic [ref=e28]: Open Trades
+          - generic [ref=e29]: "7"
+        - generic [ref=e30]:
+          - generic [ref=e31]: Drawdown
+          - generic [ref=e32]: "-3.2%"
+      - generic [ref=e35]:
+        - text: "Regime:"
+        - generic [ref=e36]:
+          - text: Low Vol
+          - text: 87.3%
+        - generic [ref=e37]:
+          - text: Medium Vol
+          - text: 42.1%
+        - generic [ref=e38]:
+          - text: High Vol
+          - text: 15.8%
+        - generic [ref=e39]:
+          - text: Uncertain
+          - text: 23.0%
+      - generic [ref=e42]:
+        - text: "Data Feed:"
+        - text: "Connected | Strategy:"
+        - text: "Active | Risk:"
+        - text: Warning
+      - generic [ref=e49]: Equity Curve
+      - generic [ref=e53]: 2025 performance — daily equity
+      - generic [ref=e59]:
+        - img:
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic: Jan 2025
+                - generic:
+                  - generic: Feb 2025
+                - generic:
+                  - generic: Mar 2025
+                - generic:
+                  - generic: Apr 2025
+                - generic:
+                  - generic: May 2025
+              - generic:
+                - generic:
+                  - generic: −2k
+                - generic:
+                  - generic: "0"
+                - generic:
+                  - generic: 2k
+                - generic:
+                  - generic: 4k
+                - generic:
+                  - generic: 6k
+                - generic:
+                  - generic: 8k
+                - generic:
+                  - generic: 10k
+        - img:
+          - generic:
+            - generic [ref=e76]:
+              - generic [ref=e78]: Equity
+              - generic [ref=e81]: Drawdown
+            - generic:
+              - generic:
+                - generic: undefined
+        - toolbar [ref=e86]:
+          - button "Download plot as a PNG" [ref=e88] [cursor=pointer]:
+            - img [ref=e89]
+          - generic [ref=e91]:
+            - button "Zoom" [ref=e92] [cursor=pointer]:
+              - img [ref=e93]
+            - button "Pan" [ref=e95] [cursor=pointer]:
+              - img [ref=e96]
+          - generic [ref=e98]:
+            - button "Zoom in" [ref=e99] [cursor=pointer]:
+              - img [ref=e100]
+            - button "Zoom out" [ref=e102] [cursor=pointer]:
+              - img [ref=e103]
+            - button "Autoscale" [ref=e105] [cursor=pointer]:
+              - img [ref=e106]
+            - button "Reset axes" [ref=e108] [cursor=pointer]:
+              - img [ref=e109]
+          - button "Fullscreen" [ref=e112] [cursor=pointer]:
+            - img [ref=e113]
+        - img
+      - generic [ref=e118]: <div style="margin-bottom:1rem; margin-top:1.5rem;"><div style="font-family:DM Sans,sans-serif; font-size:11px; text-transform:uppercase; letter-spacing:3px; color:#5a5a6a;">Recent Trades</div><div style="height:1px; background:rgba(255,255,255,0.06); margin-top:6px;"></div></div>
+      - generic [ref=e123]:
+        - button "Show/hide columns" [ref=e127] [cursor=pointer]:
+          - img [ref=e128]
+        - button "Download as CSV" [ref=e133] [cursor=pointer]:
+          - img [ref=e134]
+        - button "Search" [ref=e139] [cursor=pointer]:
+          - img [ref=e140]
+        - button "Fullscreen" [ref=e145] [cursor=pointer]:
+          - img [ref=e146]
+      - generic [ref=e160]: <div style="margin-bottom:1rem; margin-top:1.5rem;"><div style="font-family:DM Sans,sans-serif; font-size:11px; text-transform:uppercase; letter-spacing:3px; color:#5a5a6a;">Risk Metrics</div><div style="height:1px; background:rgba(255,255,255,0.06); margin-top:6px;"></div></div>
+      - generic [ref=e162]:
+        - generic [ref=e167]:
+          - generic [ref=e168]: VaR (95%)
+          - generic [ref=e169]: "-$284.5"
+        - generic [ref=e174]:
+          - generic [ref=e175]: Max Drawdown
+          - generic [ref=e176]: "-3.2%"
+      - generic [ref=e180]: <div style="margin-bottom:1rem; margin-top:1.5rem;"><div style="font-family:DM Sans,sans-serif; font-size:11px; text-transform:uppercase; letter-spacing:3px; color:#5a5a6a;">Strategy Breakdown</div><div style="height:1px; background:rgba(255,255,255,0.06); margin-top:6px;"></div></div>
+      - generic [ref=e185]:
+        - button "Show/hide columns" [ref=e189] [cursor=pointer]:
+          - img [ref=e190]
+        - button "Download as CSV" [ref=e195] [cursor=pointer]:
+          - img [ref=e196]
+        - button "Search" [ref=e201] [cursor=pointer]:
+          - img [ref=e202]
+        - button "Fullscreen" [ref=e207] [cursor=pointer]:
+          - img [ref=e208]
+  - img [ref=e219]
