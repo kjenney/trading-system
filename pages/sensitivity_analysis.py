@@ -502,6 +502,34 @@ def format_pct(value: float) -> str:
 def format_return(value: float) -> str:
     return f"{value:+.1%}"
 
+# ── URL param parsing ───────────────────────────────────────────────────────
+
+def parse_config():
+    """Read analysis config from URL query params, fall back to sidebar inputs."""
+    qp = st.query_params
+    ticker = qp.get("ticker", "SPY")
+    start_date = qp.get("start_date", None)
+    end_date = qp.get("end_date", None)
+
+    # Parse dates from URL — format: YYYY-MM-DD
+    if start_date:
+        try:
+            start_date = pd.Timestamp(start_date)
+        except ValueError:
+            start_date = pd.Timestamp.now() - pd.DateOffset(years=5)
+    else:
+        start_date = pd.Timestamp.now() - pd.DateOffset(years=5)
+
+    if end_date:
+        try:
+            end_date = pd.Timestamp(end_date)
+        except ValueError:
+            end_date = pd.Timestamp.now()
+    else:
+        end_date = pd.Timestamp.now()
+
+    return ticker, start_date, end_date
+
 # ── Main app ────────────────────────────────────────────────────────────────
 
 def main():
@@ -570,6 +598,10 @@ def main():
         </style>
     """)
 
+    # ── Path-based routing: parse URL params ────────────────────────────────
+    url_ticker, url_start, url_end = parse_config()
+    has_url = any(st.query_params.get(k) for k in ("ticker", "start_date", "end_date"))
+
     # ── Sidebar ────────────────────────────────────────────────────────
 
     with st.sidebar:
@@ -580,23 +612,50 @@ def main():
             unsafe_allow_html=True,
         )
 
-        ticker = st.selectbox(
-            "Ticker",
-            options=["SPY", "QQQ", "IWM", "DIA"],
-            index=0,
-        )
+        if has_url:
+            # URL params exist — render URL-param widgets, auto-run
+            ticker = st.selectbox(
+                "Ticker",
+                options=["SPY", "QQQ", "IWM", "DIA"],
+                index=0 if url_ticker == "SPY" else 1 if url_ticker == "QQQ" else 2 if url_ticker == "IWM" else 3,
+                key="ticker_url",
+            )
+            col1, col2 = st.columns(2)
+            with col1:
+                start_date = st.date_input(
+                    "From",
+                    value=url_start,
+                    key="start_url",
+                )
+            with col2:
+                end_date = st.date_input(
+                    "To",
+                    value=url_end,
+                    key="end_url",
+                )
+            run_btn = True
+        else:
+            # No URL params — render normal sidebar widgets
+            ticker = st.selectbox(
+                "Ticker",
+                options=["SPY", "QQQ", "IWM", "DIA"],
+                index=0,
+            )
 
-        col1, col2 = st.columns(2)
-        with col1:
-            start_date = st.date_input(
-                "From",
-                value=pd.Timestamp.now() - pd.DateOffset(years=5),
-            )
-        with col2:
-            end_date = st.date_input(
-                "To",
-                value=pd.Timestamp.now(),
-            )
+            col1, col2 = st.columns(2)
+            with col1:
+                start_date = st.date_input(
+                    "From",
+                    value=pd.Timestamp.now() - pd.DateOffset(years=5),
+                )
+            with col2:
+                end_date = st.date_input(
+                    "To",
+                    value=pd.Timestamp.now(),
+                )
+            if st.sidebar.button("▶ Run Analysis", type="primary", use_container_width=True):
+                st.session_state._run_clicked = True
+                st.rerun()
 
         st.markdown(f"<div style='height:8px'></div>", unsafe_allow_html=True)
         st.markdown(
@@ -639,9 +698,6 @@ def main():
 
         st.markdown(f"<div style='height:12px'></div>", unsafe_allow_html=True)
 
-        if st.button("▶ Run Analysis", type="primary", use_container_width=True):
-            st.session_state.run_analysis = True
-
     # ── Main content ────────────────────────────────────────────────────
 
     st.title("🔬 Sensitivity Analysis")
@@ -652,7 +708,13 @@ def main():
         unsafe_allow_html=True,
     )
 
-    if not st.session_state.get("run_analysis", False):
+    # ── Persist button click ────────────────────────────────────────────────
+    # Button click returns True only for one rerun; persist via session state
+    if st.session_state.get("_run_clicked", False):
+        st.session_state._run_clicked = False
+        has_url = True  # force past empty-state check
+
+    if not has_url and not st.session_state.get("_run_clicked", False):
         st.markdown(
             f"""<div style="background:{BG_CARD}; border:1px solid {BORDER};
             border-radius:12px; padding:3rem; text-align:center;">
@@ -670,6 +732,12 @@ def main():
         )
         return
 
+    # ── Update URL params to reflect current values ─────────────────────────
+    qp = st.query_params
+    qp["ticker"] = ticker
+    qp["start_date"] = start_date.strftime("%Y-%m-%d")
+    qp["end_date"] = end_date.strftime("%Y-%m-%d")
+
     # ── Download data ──────────────────────────────────────────────────
 
     with st.spinner("Downloading data..."):
@@ -677,7 +745,7 @@ def main():
 
     if raw.empty:
         st.error(f"No data found for {ticker}")
-        st.session_state.run_analysis = False
+        st.session_state._run_clicked = False
         return
 
     # Flatten MultiIndex columns and handle yfinance prefix on column names
@@ -696,7 +764,7 @@ def main():
                 break
     if close_col is None:
         st.error(f"No Close column found for {ticker}")
-        st.session_state.run_analysis = False
+        st.session_state._run_clicked = False
         return
 
     df = pd.DataFrame({
@@ -741,7 +809,7 @@ def main():
     # ── Gauge ──────────────────────────────────────────────────────────
 
     gauge_fig = build_robustness_gauge(overall_score)
-    col_gauge, = st.columns([1, 3])
+    col_gauge, _ = st.columns([1, 3])
     with col_gauge:
         st.plotly_chart(gauge_fig, use_container_width=True, key="gauge")
 
