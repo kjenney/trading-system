@@ -1,0 +1,40 @@
+site_name: Claude for Trading
+site_description: Documentation for the Claude for Trading dashboard
+repo_url: https://github.com/kjenney/claude-for-trading
+
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: black
+  font:
+    text: DM Sans
+    code: JetBrains Mono
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - content.code.annotate
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+nav:
+  - Overview: index.md
+  - Design System: design-system.md
+  - Pages:
+      - Regime Detection: pages/regime-detection.md
+      - Sensitivity Analysis: pages/sensitivity-analysis.md
+      - Monte Carlo: pages/monte-carlo.md
