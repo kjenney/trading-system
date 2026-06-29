@@ -12,16 +12,6 @@ from design_system import *
 
 apply_theme()
 
-# ── Layout helpers ────────────────────────────────────────────────────────────
-
-def html_row(*html_items):
-    """Render HTML side-by-side."""
-    st.markdown(
-        '<div style="display:flex;align-items:baseline;gap:1.5rem;flex-wrap:wrap;">'
-        + "".join(html_items)
-        + "</div>",
-        unsafe_allow_html=True,
-    )
 
 # ── Feature engineering ───────────────────────────────────────────────────────
 

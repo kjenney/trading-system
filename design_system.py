@@ -274,6 +274,17 @@ def get_plotly_layout(**overrides) -> dict:
     base.update(overrides)
     return base
 
+# ── Layout Helpers ────────────────────────────────────────────────────────────
+
+def html_row(*html_items: str) -> None:
+    """Render HTML items side-by-side."""
+    st.markdown(
+        '<span style="display:flex;align-items:baseline;gap:1.5rem;flex-wrap:wrap;">'
+        + "".join(html_items)
+        + "</span>",
+        unsafe_allow_html=True,
+    )
+
 # ── DataFrame Styling ────────────────────────────────────────────────────────
 
 def style_dataframe(df: pd.DataFrame):
