@@ -658,6 +658,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pages/sentiment-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sentiment Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -884,6 +912,10 @@
 <td><a href="pages/multi-asset-regime/">Multi-Asset Regime</a></td>
 <td>Walk-forward HMM regime allocation across asset classes</td>
 </tr>
+<tr>
+<td><a href="pages/sentiment-analysis/">Sentiment Analysis</a></td>
+<td>News-driven sentiment gauges and key drivers</td>
+</tr>
 </tbody>
 </table>
 <h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
@@ -894,8 +926,11 @@
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>├── pages/
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│   ├── dashboard.py         # HMM regime detection
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│   ├── sensitivity_analysis.py  # Parameter sensitivity sweep
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│   └── monte_carlo.py       # Monte Carlo equity simulation
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>└── requirements.txt         # Python dependencies
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│   ├── monte_carlo.py       # Monte Carlo equity simulation
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│   ├── portfolio_risk.py    # Regime overlay, correlation, stress testing
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│   ├── multi_asset_regime.py  # Walk-forward regime allocation
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│   └── sentiment_analysis.py  # News-driven sentiment gauges
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>└── requirements.txt         # Python dependencies
 </code></pre></div>
 <h2 id="design-system">Design System<a class="headerlink" href="#design-system" title="Permanent link">&para;</a></h2>
 <p><code>design_system.py</code> provides shared building blocks:</p>
