@@ -21,6 +21,7 @@ streamlit run home.py
 | **Monte Carlo** | 🎲 | Equity curve probability cloud from trade-return shuffling |
 | **Portfolio Risk** | 📊 | Regime overlay, correlation analysis, stress testing |
 | **Multi-Asset Regime** | 📈 | Walk-forward HMM regime allocation across assets |
+| **Regime Screener** | 🔍 | Multi-ticker HMM regime scan with filtering, sorting, click-to-chart |
 | **Demo** | — | Design system component showcase |
 
 ## Architecture
@@ -37,6 +38,7 @@ claude-for-trading/
 │   ├── monte_carlo.py            # Monte Carlo equity simulation
 │   ├── portfolio_risk.py         # Regime overlay, correlation, stress testing
 │   └── multi_asset_regime.py     # Walk-forward HMM regime allocation
+│   └── regime_screener.py        # Multi-ticker HMM regime screener
 ├── scripts/
 │   └── detectwords.py            # Amazon Rekognition text detection (troubleshooting)
 └── requirements.txt              # Python dependencies
@@ -101,6 +103,17 @@ from design_system import ACCENT_CYAN, ACCENT_GREEN, metric_card, section_header
 - Stress tests: drawdowns during 2008, 2020, 2022 crisis windows
 - Visualizations: equity curves (per-asset colored), regime timeline strips (all assets stacked), comparison table, stress bar charts
 - URL routing: `?selected=SPY&train_years=2&test_months=6` for shareable links
+
+### Regime Screener (`pages/regime_screener.py`)
+
+- Scans configurable universe of tickers (default: 23 across Large Cap, ETF, Crypto)
+- Downloads price data via `yfinance`, engineers features: log returns, realized vol, volume ratio, H-L range
+- Trains `hmmlearn.GaussianHMM` with diagonal covariance, selects #regimes via BIC (3–5 states)
+- Forward-filtered regime labels — no look-ahead bias, stability filter flags flickering as "Uncertain"
+- Regime labeling by mean volatility: Low Vol / Medium Vol / High Vol
+- Sidebar: remove/add tickers, filter by regime, confidence, SMA 50 position, volume trend, sort order, date range
+- Table: colored regime badges, confidence progress bars, clean setup indicator (cyan border)
+- Click-to-chart modal: regime-colored price chart + regime history bar for individual tickers
 
 ### Detect Words (`scripts/detectwords.py`)
 
