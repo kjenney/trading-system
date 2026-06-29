@@ -1,6 +1,6 @@
 # Claude for Trading — Dashboard
 
-Dark trading-terminal Streamlit app with three analytical pages: regime detection, sensitivity analysis, and Monte Carlo simulation.
+Dark trading-terminal Streamlit app with five analytical pages: regime detection, sensitivity analysis, Monte Carlo simulation, portfolio risk, and multi-asset regime backtesting.
 
 ## Quick Start
 
@@ -19,6 +19,8 @@ streamlit run home.py
 | **Dashboard** | 🚀 | HMM regime detection — online forward filtering, no look-ahead bias |
 | **Sensitivity** | 🔬 | Parameter robustness scoring via single-parameter sweeps |
 | **Monte Carlo** | 🎲 | Equity curve probability cloud from trade-return shuffling |
+| **Portfolio Risk** | 📊 | Regime overlay, correlation analysis, stress testing |
+| **Multi-Asset Regime** | 📈 | Walk-forward HMM regime allocation across assets |
 | **Demo** | — | Design system component showcase |
 
 ## Architecture
@@ -30,10 +32,14 @@ claude-for-trading/
 ├── demo/
 │   └── demo.py              # Design system walkthrough
 ├── pages/
-│   ├── dashboard.py         # HMM regime detection
-│   ├── sensitivity_analysis.py  # Parameter sensitivity sweep
-│   └── monte_carlo.py       # Monte Carlo equity simulation
-└── requirements.txt         # Python dependencies
+│   ├── dashboard.py              # HMM regime detection
+│   ├── sensitivity_analysis.py   # Parameter sensitivity sweep
+│   ├── monte_carlo.py            # Monte Carlo equity simulation
+│   ├── portfolio_risk.py         # Regime overlay, correlation, stress testing
+│   └── multi_asset_regime.py     # Walk-forward HMM regime allocation
+├── scripts/
+│   └── detectwords.py            # Amazon Rekognition text detection (troubleshooting)
+└── requirements.txt              # Python dependencies
 ```
 
 ### Design System
@@ -78,6 +84,31 @@ from design_system import ACCENT_CYAN, ACCENT_GREEN, metric_card, section_header
 - Overfitting check: original backtest result percentile vs shuffled outcomes — >90th percentile = HIGH risk
 - Visualizations: cinematic fan chart, final-value histogram, drawdown distribution histogram
 
+### Portfolio Risk (`pages/portfolio_risk.py`)
+
+- Input positions manually, via CSV upload, or via Alpaca API integration
+- Runs HMM regime detection on each position and watchlist ticker — overlays regime badges on position cards
+- Computes 60-day rolling correlation matrix between all positions — heatmap with red borders on pairs >0.85
+- Stress tests: applies historical drawdowns (2008 Crisis, 2020 Covid, 2022 Rate Hikes) to portfolio
+- Regime health metric: counts positions in favorable regimes ("Low Vol", "Bull")
+
+### Multi-Asset Regime (`pages/multi_asset_regime.py`)
+
+- Walk-forward backtest: train HMM on fixed window, test on rolling period, advance forward
+- Regime-based allocation: 95% in Low Vol, 60% in High Vol, linear interpolation for Medium Vol
+- Benchmarks: buy-and-hold, 200-day SMA trend-following
+- Metrics: annualized return, Sharpe, max drawdown, Sharpe improvement
+- Stress tests: drawdowns during 2008, 2020, 2022 crisis windows
+- Visualizations: equity curves (per-asset colored), regime timeline strips (all assets stacked), comparison table, stress bar charts
+- URL routing: `?selected=SPY&train_years=2&test_months=6` for shareable links
+
+### Detect Words (`scripts/detectwords.py`)
+
+- Command-line tool for detecting text in images via Amazon Rekognition `detect_text`
+- Usage: `python detectwords.py --profile <aws_profile> <image_path>`
+- Outputs each detected word with confidence percentage
+- Troubleshooting utility — not part of the Streamlit app
+
 ## Dependencies
 
 ```
@@ -91,7 +122,9 @@ hmmlearn>=0.3.0
 
 ## URL Routing
 
-Dashboard and Sensitivity pages support path-based routing via URL query params:
+Dashboard, Sensitivity, and Multi-Asset Regime pages support path-based routing via URL query params:
 
-- `?ticker=SPY&start_date=2021-01-01&end_date=2024-01-01` — auto-runs with those params
+- `?ticker=SPY&start_date=2021-01-01&end_date=2024-01-01` — Dashboard auto-runs with those params
+- `?ticker=QQQ&start_date=2021-01-01&end_date=2024-01-01` — Sensitivity auto-runs with those params
+- `?selected=SPY&start_date=2019-01-01&end_date=2024-01-01&train_years=2&test_months=6` — Multi-Asset Regime auto-runs
 - URL updates as you change inputs — shareable links

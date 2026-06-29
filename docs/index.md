@@ -1,6 +1,6 @@
 # Claude for Trading
 
-Dark trading-terminal Streamlit dashboard with three analytical pages: regime detection, sensitivity analysis, and Monte Carlo simulation.
+Dark trading-terminal Streamlit dashboard with five analytical pages: regime detection, sensitivity analysis, Monte Carlo simulation, portfolio risk, and multi-asset regime backtesting.
 
 ## Pages
 
@@ -9,6 +9,8 @@ Dark trading-terminal Streamlit dashboard with three analytical pages: regime de
 | [Regime Detection](pages/regime-detection.md) | HMM-based market regime classification with online forward filtering |
 | [Sensitivity Analysis](pages/sensitivity-analysis.md) | Parameter robustness scoring via single-parameter sweeps |
 | [Monte Carlo](pages/monte-carlo.md) | Equity curve probability cloud from trade-return shuffling |
+| [Portfolio Risk](pages/portfolio-risk.md) | Regime overlay, correlation analysis, stress testing |
+| [Multi-Asset Regime](pages/multi-asset-regime.md) | Walk-forward HMM regime allocation across asset classes |
 
 ## Architecture
 

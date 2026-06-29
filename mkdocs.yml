@@ -38,3 +38,7 @@ nav:
       - Regime Detection: pages/regime-detection.md
       - Sensitivity Analysis: pages/sensitivity-analysis.md
       - Monte Carlo: pages/monte-carlo.md
+      - Portfolio Risk: pages/portfolio-risk.md
+      - Multi-Asset Regime: pages/multi-asset-regime.md
+  - Tools:
+      - Detect Words: pages/detectwords.md
