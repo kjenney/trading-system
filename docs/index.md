@@ -11,6 +11,7 @@ Dark trading-terminal Streamlit dashboard with five analytical pages: regime det
 | [Monte Carlo](pages/monte-carlo.md) | Equity curve probability cloud from trade-return shuffling |
 | [Portfolio Risk](pages/portfolio-risk.md) | Regime overlay, correlation analysis, stress testing |
 | [Multi-Asset Regime](pages/multi-asset-regime.md) | Walk-forward HMM regime allocation across asset classes |
+| [Sentiment Analysis](pages/sentiment-analysis.md) | News-driven sentiment gauges and key drivers |
 
 ## Architecture
 
@@ -22,7 +23,10 @@ claude-for-trading/
 ├── pages/
 │   ├── dashboard.py         # HMM regime detection
 │   ├── sensitivity_analysis.py  # Parameter sensitivity sweep
-│   └── monte_carlo.py       # Monte Carlo equity simulation
+│   ├── monte_carlo.py       # Monte Carlo equity simulation
+│   ├── portfolio_risk.py    # Regime overlay, correlation, stress testing
+│   ├── multi_asset_regime.py  # Walk-forward regime allocation
+│   └── sentiment_analysis.py  # News-driven sentiment gauges
 └── requirements.txt         # Python dependencies
 ```
 

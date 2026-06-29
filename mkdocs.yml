@@ -40,5 +40,6 @@ nav:
       - Monte Carlo: pages/monte-carlo.md
       - Portfolio Risk: pages/portfolio-risk.md
       - Multi-Asset Regime: pages/multi-asset-regime.md
+      - Sentiment Analysis: pages/sentiment-analysis.md
   - Tools:
       - Detect Words: pages/detectwords.md
