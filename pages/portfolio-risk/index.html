@@ -11,10 +11,10 @@
       
       
       
-        <link rel="prev" href="../../design-system/">
+        <link rel="prev" href="../monte-carlo/">
       
       
-        <link rel="next" href="../sensitivity-analysis/">
+        <link rel="next" href="../multi-asset-regime/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Regime Detection - Claude for Trading</title>
+        <title>Portfolio Risk - Claude for Trading</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#regime-detection" class="md-skip">
+        <a href="#portfolio-risk" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Regime Detection
+              Portfolio Risk
             
           </span>
         </div>
@@ -235,7 +235,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+        <a href="../regime-detection/" class="md-tabs__link">
           
   
   
@@ -427,37 +427,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Regime Detection
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../regime-detection/" class="md-nav__link">
         
   
   
@@ -473,103 +446,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Overview
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Features
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#no-look-ahead-guarantee" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        No Look-Ahead Guarantee
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#forward-filtering" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Forward Filtering
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Usage
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#visualizations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Visualizations
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#url-routing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        URL Routing
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -635,10 +511,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../portfolio-risk/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Portfolio Risk
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -654,6 +557,214 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#manual-position-entry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manual Position Entry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csv-upload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CSV Upload
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alpaca-integration-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alpaca Integration (optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#watchlist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Watchlist
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regime-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regime Detection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#correlation-risk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correlation Risk
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stress-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stress Tests
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visualizations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Visualizations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#position-cards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Position Cards
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#correlation-heatmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correlation Heatmap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stress-test-bars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stress Test Bars
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#watchlist-cards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Watchlist Cards
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -819,10 +930,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
+  <a href="#architecture" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Features
+        Architecture
       
     </span>
   </a>
@@ -830,10 +941,71 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#no-look-ahead-guarantee" class="md-nav__link">
+  <a href="#inputs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        No Look-Ahead Guarantee
+        Inputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#manual-position-entry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manual Position Entry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csv-upload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CSV Upload
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alpaca-integration-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alpaca Integration (optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#watchlist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Watchlist
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regime-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regime Detection
       
     </span>
   </a>
@@ -841,10 +1013,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#forward-filtering" class="md-nav__link">
+  <a href="#correlation-risk" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Forward Filtering
+        Correlation Risk
       
     </span>
   </a>
@@ -852,10 +1024,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
+  <a href="#stress-tests" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Usage
+        Stress Tests
       
     </span>
   </a>
@@ -871,13 +1043,63 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Visualizations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#position-cards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Position Cards
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#correlation-heatmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correlation Heatmap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stress-test-bars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stress Test Bars
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#watchlist-cards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Watchlist Cards
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#url-routing" class="md-nav__link">
+  <a href="#usage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        URL Routing
+        Usage
       
     </span>
   </a>
@@ -904,54 +1126,107 @@
   
 
 
-<h1 id="regime-detection">Regime Detection<a class="headerlink" href="#regime-detection" title="Permanent link">&para;</a></h1>
-<p>HMM-based market regime classification with online forward filtering. No look-ahead bias.</p>
+<h1 id="portfolio-risk">Portfolio Risk<a class="headerlink" href="#portfolio-risk" title="Permanent link">&para;</a></h1>
+<p>Regime overlay, correlation analysis, and stress testing for a multi-asset portfolio.</p>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>The regime detection page downloads price data, engineers features, trains a Hidden Markov Model, and produces regime-colored price charts with confidence timelines.</p>
-<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<p>Dashboard that overlays HMM market regimes onto portfolio positions, computes inter-asset correlations, and runs historical stress tests. Supports manual position entry, CSV upload, and optional Alpaca API integration for live positions.</p>
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌─────────────────────────────────────────┐
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│  Top Bar: total value, P&amp;L, regime health, market status  │
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├──────────────────┬──────────────────────┤
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│  Positions       │  Correlation Heatmap │
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│  (with regime    │  Risk                │
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│   badges)        │                      │
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│                  ├──────────────────────┤
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│                  │  Stress Tests        │
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│                  │  (2008, 2020, 2022)  │
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│                  ├──────────────────────┤
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│                  │  Watchlist           │
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│                  │  (regime + price)    │
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>└──────────────────┴──────────────────────┘
+</code></pre></div>
+<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">&para;</a></h2>
+<h3 id="manual-position-entry">Manual Position Entry<a class="headerlink" href="#manual-position-entry" title="Permanent link">&para;</a></h3>
+<p>Add positions in the sidebar with ticker, shares, and entry price. Edit or remove existing positions via expandable sections.</p>
+<h3 id="csv-upload">CSV Upload<a class="headerlink" href="#csv-upload" title="Permanent link">&para;</a></h3>
+<p>Upload a CSV with columns: <code>ticker</code>, <code>shares</code>, <code>entry</code>. Parses and replaces current positions.</p>
+<h3 id="alpaca-integration-optional">Alpaca Integration (optional)<a class="headerlink" href="#alpaca-integration-optional" title="Permanent link">&para;</a></h3>
+<p>Enter API key and secret key in the sidebar. Click "Connect" to fetch live positions from Alpaca.</p>
+<h3 id="watchlist">Watchlist<a class="headerlink" href="#watchlist" title="Permanent link">&para;</a></h3>
+<p>Add tickers to watch in the sidebar. Watchlist items display current price and HMM regime status.</p>
+<h2 id="regime-detection">Regime Detection<a class="headerlink" href="#regime-detection" title="Permanent link">&para;</a></h2>
+<p>Each position and watchlist ticker runs the same HMM regime detection as the Regime Detection page:</p>
 <ol>
-<li><strong>Data download</strong> via <code>yfinance</code></li>
-<li><strong>Feature engineering</strong>: log returns, 20-day realized vol, volume ratio, H-L range</li>
-<li><strong>Model selection</strong>: trains <code>hmmlearn.GaussianHMM</code> (diagonal covariance) with 3–7 regimes, selects via BIC</li>
-<li><strong>Forward-filtered labels</strong>: uses forward algorithm (alpha) to compute posterior marginals <code>gamma[t] = P(q_t | o_1..t)</code> — NO <code>model.predict()</code> used</li>
-<li><strong>Stability filter</strong>: regimes must persist 3 consecutive bars; &gt;4 transitions in 20-bar window flags as "Uncertain"</li>
-<li><strong>Regime labeling</strong>: sorts by mean volatility — Low Vol / Medium Vol / High Vol</li>
+<li>Downloads 365 days of data via <code>yfinance</code></li>
+<li>Engineers features: log returns, 20-day realized vol, volume ratio, H-L range</li>
+<li>Trains <code>hmmlearn.GaussianHMM</code> with 3 regimes (diagonal covariance)</li>
+<li>Forward-filters labels — no look-ahead bias</li>
+<li>Applies stability filter (3-bar persistence, 20-bar flicker threshold)</li>
 </ol>
-<h2 id="no-look-ahead-guarantee">No Look-Ahead Guarantee<a class="headerlink" href="#no-look-ahead-guarantee" title="Permanent link">&para;</a></h2>
-<p>The page verifies no look-ahead bias on every run:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">verify_no_lookahead</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Confirm no look-ahead bias — Viterbi decoding must not be used.&quot;&quot;&quot;</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="c1"># Scans source code for model.predict() or model.predict_proba() calls</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="c1"># Returns True if clean, False if found</span>
-</code></pre></div>
-<p>If <code>model.predict()</code> is found in the code, the page displays an error and aborts.</p>
-<h2 id="forward-filtering">Forward Filtering<a class="headerlink" href="#forward-filtering" title="Permanent link">&para;</a></h2>
-<p>Instead of calling <code>model.predict()</code> (which uses Viterbi and requires all observations), the page computes forward-filtered labels using the forward algorithm:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>alpha[t, j] = sum_i(alpha[t-1, i] * trans[i,j]) * b_j(o_t)
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>gamma[t, i] = alpha[t, i] / sum_j(alpha[t, j])   # posterior marginals
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>label[t] = argmax_i(gamma[t, i])
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>confidence[t] = max(gamma[t, i])
-</code></pre></div>
-<p>This means label at time T uses only data 1..T — zero look-ahead bias.</p>
+<p>Regime health metric counts positions in favorable regimes ("Low Vol", "Bull").</p>
+<h2 id="correlation-risk">Correlation Risk<a class="headerlink" href="#correlation-risk" title="Permanent link">&para;</a></h2>
+<p>60-day rolling correlation matrix between all portfolio positions, rendered as a dark-themed heatmap:</p>
+<ul>
+<li><strong>Color scale</strong>: deep navy (low) → cyan (moderate) → white (high)</li>
+<li><strong>Red warning borders</strong>: cells above 0.85 correlation flagged as over-concentration risk</li>
+</ul>
+<h2 id="stress-tests">Stress Tests<a class="headerlink" href="#stress-tests" title="Permanent link">&para;</a></h2>
+<p>Applies historical drawdowns to current positions:</p>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>SPY</th>
+<th>QQQ</th>
+<th>AAPL</th>
+<th>GLD</th>
+<th>TLT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2008 Crisis</td>
+<td>-56%</td>
+<td>-54%</td>
+<td>-61%</td>
+<td>+21%</td>
+<td>+33%</td>
+</tr>
+<tr>
+<td>2020 Covid</td>
+<td>-34%</td>
+<td>-28%</td>
+<td>-31%</td>
+<td>-3%</td>
+<td>+21%</td>
+</tr>
+<tr>
+<td>2022 Rate Hikes</td>
+<td>-25%</td>
+<td>-33%</td>
+<td>-30%</td>
+<td>-4%</td>
+<td>-31%</td>
+</tr>
+</tbody>
+</table>
+<p>Severity bars colored green (&lt;10%), amber (&lt;20%), red (≥20% loss).</p>
+<h2 id="visualizations">Visualizations<a class="headerlink" href="#visualizations" title="Permanent link">&para;</a></h2>
+<h3 id="position-cards">Position Cards<a class="headerlink" href="#position-cards" title="Permanent link">&para;</a></h3>
+<p>Dark cards showing ticker, P&amp;L ($ and %), entry price, current price, shares, and regime badge with confidence. P&amp;L bars centered at 0, extending left (loss) or right (gain).</p>
+<h3 id="correlation-heatmap">Correlation Heatmap<a class="headerlink" href="#correlation-heatmap" title="Permanent link">&para;</a></h3>
+<p>Square Plotly heatmap with cyan scale and red borders on high-correlation pairs.</p>
+<h3 id="stress-test-bars">Stress Test Bars<a class="headerlink" href="#stress-test-bars" title="Permanent link">&para;</a></h3>
+<p>Horizontal bars showing drawdown severity per scenario, color-coded by magnitude.</p>
+<h3 id="watchlist-cards">Watchlist Cards<a class="headerlink" href="#watchlist-cards" title="Permanent link">&para;</a></h3>
+<p>Compact cards with ticker, price, regime badge, confidence bar, days-in-regime bar, and stability indicator.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Enter ticker (default: SPY)</li>
-<li>Set date range (default: last 3 years)</li>
-<li>Optionally override #regimes (0 = auto-select via BIC)</li>
-<li>Click "Run Analysis"</li>
+<li>Enter positions (manual, CSV, or Alpaca)</li>
+<li>Add tickers to watchlist</li>
+<li>Dashboard auto-runs — downloads prices, runs regime detection, computes correlations</li>
+<li>Click "Refresh" to clear cache and re-fetch all data</li>
 </ol>
-<h2 id="visualizations">Visualizations<a class="headerlink" href="#visualizations" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Price chart</strong> with regime-colored background bands (opacity 0.13)</li>
-<li><strong>Regime statistics cards</strong> — mean return, vol, vol ratio, time in regime</li>
-<li><strong>Confidence timeline</strong> — area chart colored by regime, showing posterior probability</li>
-</ul>
-<h2 id="url-routing">URL Routing<a class="headerlink" href="#url-routing" title="Permanent link">&para;</a></h2>
-<p>Supports shareable links:</p>
-<ul>
-<li><code>?ticker=QQQ&amp;start_date=2022-01-01&amp;end_date=2024-01-01</code> — auto-runs with QQQ data</li>
-<li><code>?override_n=5</code> — forces 5 regimes instead of auto-selecting</li>
-</ul>
 
 
 
