@@ -1,6 +1,6 @@
 # Claude for Trading — Dashboard
 
-Dark trading-terminal Streamlit app with five analytical pages: regime detection, sensitivity analysis, Monte Carlo simulation, portfolio risk, and multi-asset regime backtesting.
+Dark trading-terminal Streamlit app with seven analytical pages: regime detection, sensitivity analysis, Monte Carlo simulation, portfolio risk, multi-asset regime backtesting, sentiment analysis, and correlation break detection.
 
 ## Quick Start
 
@@ -22,6 +22,7 @@ streamlit run home.py
 | **Portfolio Risk** | 📊 | Regime overlay, correlation analysis, stress testing |
 | **Multi-Asset Regime** | 📈 | Walk-forward HMM regime allocation across assets |
 | **Regime Screener** | 🔍 | Multi-ticker HMM regime scan with filtering, sorting, click-to-chart |
+| **Correlation Break** | 📉 | Rolling pairwise correlations, z-score alerts, historical context |
 | **Demo** | — | Design system component showcase |
 
 ## Architecture
@@ -39,6 +40,7 @@ claude-for-trading/
 │   ├── portfolio_risk.py         # Regime overlay, correlation, stress testing
 │   └── multi_asset_regime.py     # Walk-forward HMM regime allocation
 │   └── regime_screener.py        # Multi-ticker HMM regime screener
+│   └── correlation_break.py      # Rolling correlation z-score break detector
 ├── scripts/
 │   └── detectwords.py            # Amazon Rekognition text detection (troubleshooting)
 └── requirements.txt              # Python dependencies
@@ -114,6 +116,19 @@ from design_system import ACCENT_CYAN, ACCENT_GREEN, metric_card, section_header
 - Sidebar: remove/add tickers, filter by regime, confidence, SMA 50 position, volume trend, sort order, date range
 - Table: colored regime badges, confidence progress bars, clean setup indicator (cyan border)
 - Click-to-chart modal: regime-colored price chart + regime history bar for individual tickers
+
+### Correlation Break Detector (`pages/correlation_break.py`)
+
+- Monitors configurable asset pairs (default: SPY/QQQ, GLD/TLT, SPY/IWM, BTC-USD/ETH-USD, SPY/EEM)
+- Downloads daily data via `yfinance`, computes rolling correlations at 20-day and 60-day windows
+- Calculates historical mean and standard deviation of each pair's 60-day rolling correlation
+- Z-score alerts: classifies breaks as Normal (>-1.5), Notable (-1.5 to -2.0), Significant (-2.0 to -2.5), Extreme (<-2.5)
+- Status cards with visual hierarchy — Normal cards are subdued, break-status cards "pop" with glow animations
+- Main correlation chart with mean line, -2σ threshold, green/red area fill, historical break shading
+- 20-day/60-day comparison chart for quick assessment
+- Historical context: when a break is detected, finds prior similar z-score events and computes 5/10/20-day forward returns
+- Alert logging: alerts saved to `data/correlation_alerts.json` with timestamp, pair, z-score, severity
+- Sidebar: pair management (add/remove/edit), correlation window selector (20/60/120-day), z-score threshold slider, date range
 
 ### Detect Words (`scripts/detectwords.py`)
 
